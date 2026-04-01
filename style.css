@@ -134,6 +134,12 @@ button:disabled {
   height: 200px;
   object-fit: cover;
   border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+/* Zoom image slightly when hovering over the gallery card */
+.gallery-item:hover img.gallery-image {
+  transform: scale(1.06);
 }
 
 .gallery-image {
@@ -244,8 +250,9 @@ button:disabled {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0);
   animation: fadeIn 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 /* Show modal when active */
@@ -253,6 +260,12 @@ button:disabled {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Backdrop overlay is toggled by JavaScript */
+.modal.show-overlay {
+  background-color: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(2px);
 }
 
 /* Modal content container */
@@ -264,7 +277,8 @@ button:disabled {
   max-height: 90vh;
   overflow-y: auto;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  animation: slideUp 0.3s ease;
+  transform-origin: center;
+  animation: modalPop 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 /* Modal header */
@@ -394,10 +408,14 @@ button:disabled {
   }
 }
 
-@keyframes slideUp {
+@keyframes modalPop {
   from {
-    transform: translateY(20px);
+    transform: translateY(14px) scale(0.94);
     opacity: 0;
+  }
+  70% {
+    transform: translateY(0) scale(1.02);
+    opacity: 1;
   }
   to {
     transform: translateY(0);

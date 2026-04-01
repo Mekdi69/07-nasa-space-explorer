@@ -310,6 +310,8 @@ function openApodModal(apod) {
   
   // Show the modal to the user
   apodModal.classList.add('active');
+  // Show the dark overlay via JavaScript-controlled class
+  apodModal.classList.add('show-overlay');
   apodModal.setAttribute('aria-hidden', 'false');
   
   // Prevent page from scrolling behind the modal
@@ -326,6 +328,8 @@ function openApodModal(apod) {
 function closeApodModal() {
   // Hide the modal visually
   apodModal.classList.remove('active');
+  // Hide the dark overlay when modal closes
+  apodModal.classList.remove('show-overlay');
   apodModal.setAttribute('aria-hidden', 'true');
   
   // Restore page scrolling
