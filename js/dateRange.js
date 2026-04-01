@@ -28,3 +28,14 @@ function setupDateInputs(startInput, endInput) {
     endInput.value = endDate > new Date(today) ? today : endDate.toISOString().split('T')[0];
   });
 }
+
+// Validate that a date is within the valid APOD range
+function isValidapodDate(dateString) {
+  // Check if date is a valid string in YYYY-MM-DD format
+  if (!dateString || typeof dateString !== 'string') {
+    return false;
+  }
+  
+  // Compare date strings (YYYY-MM-DD format works for string comparison)
+  return dateString >= earliestDate && dateString <= today;
+}

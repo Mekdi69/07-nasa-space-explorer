@@ -27,6 +27,25 @@
     </div>
   </div>
 
+  <!-- Modal for detailed view of APOD entry -->
+  <div id="apodModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">Image Title</h2>
+        <button class="modal-close" aria-label="Close modal details">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="modalImage" class="modal-image-container">
+          <!-- Image or video will be inserted here -->
+        </div>
+        <div class="modal-details">
+          <p id="modalDate" class="modal-date"></p>
+          <p id="modalExplanation" class="modal-explanation"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/dateRange.js"></script>
   <script src="js/script.js"></script>
 </body>
